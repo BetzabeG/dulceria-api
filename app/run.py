@@ -28,7 +28,7 @@ db.init_app(app)
 
 ## Inicializa la extension JWTManager
 jwt = JWTManager(app)
-# Registra el blueprint de animales en la aplicacion
+# Registra el blueprint de dulces en la aplicacion
 app.register_blueprint(dulce_bp, url_prefix='/api')
 ## regitras el bleprint de users en la aplicacion
 app.register_blueprint(user_bp, url_prefix="/api")
@@ -36,6 +36,10 @@ app.register_blueprint(user_bp, url_prefix="/api")
 # Crea las tablas si no existen
 with app.app_context():
     db.create_all()
-# Ejecuta la aplicacion
+    
+## Ejecuta la aplicacion
+
+"""if __name__ == "__main__":
+    app.run(debug=True)"""
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
